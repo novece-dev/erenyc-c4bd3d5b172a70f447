@@ -1,0 +1,30 @@
+# EYLIFE LLC — gizli önizleme. Arama motorlarına kapalıdır.
+
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow, noarchive, nosnippet"
+</IfModule>
+
+# Dizin listelemesini kapat
+Options -Indexes
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp  "access plus 1 year"
+  ExpiresByType image/png   "access plus 1 year"
+  ExpiresByType image/jpeg  "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4   "access plus 1 year"
+  ExpiresByType text/html   "access plus 0 seconds"
+</IfModule>
+
+# --- İSTEĞE BAĞLI: şifre koruması ---
+# Aşağıdaki 4 satırın başındaki # işaretlerini kaldırın ve
+# AuthUserFile yolunu sunucudaki gerçek .htpasswd yoluyla değiştirin.
+# AuthType Basic
+# AuthName "EYLIFE LLC onizleme"
+# AuthUserFile /home/KULLANICI/.htpasswd
+# Require valid-user
