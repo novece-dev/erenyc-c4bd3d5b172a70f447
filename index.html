@@ -190,14 +190,21 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .records .shot{border-radius:var(--r-md)}
 .rec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-top:64px}
 .rec-head p{font-size:.9rem; color:var(--text-3)}
-details.reveal-all{margin-top:26px}
-details.reveal-all>summary{cursor:pointer; list-style:none; display:inline-flex; align-items:center;
-  gap:10px; min-height:48px; padding:12px 24px; border:1px solid var(--line-2);
+/* DİKKAT: <details> üzerinde display:flex kapalıyken içeriği sızdırır.
+   Bu yüzden flex YALNIZCA [open] durumunda uygulanıyor. */
+details.reveal-all{margin-top:34px}
+details.reveal-all[open]{display:flex; flex-direction:column; align-items:center}
+details.reveal-all>summary{cursor:pointer; list-style:none; display:flex; align-items:center;
+  width:max-content; margin-inline:auto;
+  gap:10px; min-height:48px; padding:12px 26px; border:1px solid var(--line-2);
   border-radius:var(--r-sm); font-weight:600; font-size:.94rem; color:var(--text);
   transition:border-color .15s, background .15s}
 details.reveal-all>summary:hover{border-color:var(--text-3); background:rgba(148,163,184,.08)}
 details.reveal-all>summary::-webkit-details-marker{display:none}
-details.reveal-all[open]>summary{margin-bottom:26px}
+details.reveal-all>.extra{width:100%}
+/* açıkken buton, ortaya hizalı biçimde içeriğin ALTINA iner */
+details.reveal-all[open]>.extra{order:1}
+details.reveal-all[open]>summary{order:2; margin-top:30px}
 details.reveal-all[open]>summary .lbl-o{display:none}
 details.reveal-all:not([open])>summary .lbl-c{display:none}
 /* genişleyen bölüm, kayıt ızgarasıyla birebir aynı kart dilini kullanır */
