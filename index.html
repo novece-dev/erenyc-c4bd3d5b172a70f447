@@ -184,6 +184,9 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 @media(min-width:640px){.records{grid-template-columns:repeat(3,1fr); gap:16px}}
 @media(min-width:1000px){.records{grid-template-columns:repeat(6,1fr)}}
 .records .shot img,.extra .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
+/* görsel inene kadar kart boş değil, iskelet görünsün */
+.records .shot,.extra .shot{background:#EEF2F7}
+.records .shot img,.extra .shot img{background:transparent}
 .records .shot{border-radius:var(--r-md)}
 .rec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-top:64px}
 .rec-head p{font-size:.9rem; color:var(--text-3)}
@@ -195,8 +198,8 @@ details.reveal-all>summary{cursor:pointer; list-style:none; display:inline-flex;
 details.reveal-all>summary:hover{border-color:var(--text-3); background:rgba(148,163,184,.08)}
 details.reveal-all>summary::-webkit-details-marker{display:none}
 details.reveal-all[open]>summary{margin-bottom:26px}
-details.reveal-all[open]>summary .lbl-c{display:none}
-details.reveal-all:not([open])>summary .lbl-o{display:none}
+details.reveal-all[open]>summary .lbl-o{display:none}
+details.reveal-all:not([open])>summary .lbl-c{display:none}
 /* genişleyen bölüm, kayıt ızgarasıyla birebir aynı kart dilini kullanır */
 .extra{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
 @media(min-width:640px){.extra{grid-template-columns:repeat(3,1fr); gap:16px}}
@@ -542,22 +545,22 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     </div>
     <div class="records rv">
       <figure class="shot">
-        <img src="assets/img/s-09.webp" width="551" height="601" loading="lazy" decoding="async" alt="5.871 sipariş, 108.919,05 dolar satış">
+        <img src="assets/img/s-09.webp" width="551" height="601" fetchpriority="low" decoding="async" alt="5.871 sipariş, 108.919,05 dolar satış">
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-04.webp" width="508" height="604" loading="lazy" decoding="async" alt="5.063 sipariş, 93.082,58 dolar satış">
+        <img src="assets/img/s-04.webp" width="508" height="604" fetchpriority="low" decoding="async" alt="5.063 sipariş, 93.082,58 dolar satış">
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-02.webp" width="506" height="604" loading="lazy" decoding="async" alt="4.929 sipariş, 90.769,33 dolar satış">
+        <img src="assets/img/s-02.webp" width="506" height="604" fetchpriority="low" decoding="async" alt="4.929 sipariş, 90.769,33 dolar satış">
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-03.webp" width="507" height="601" loading="lazy" decoding="async" alt="2.754 sipariş, 52.257,79 dolar satış">
+        <img src="assets/img/s-03.webp" width="507" height="601" fetchpriority="low" decoding="async" alt="2.754 sipariş, 52.257,79 dolar satış">
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-01.webp" width="508" height="604" loading="lazy" decoding="async" alt="1.772 sipariş, 32.712,74 dolar satış">
+        <img src="assets/img/s-01.webp" width="508" height="604" fetchpriority="low" decoding="async" alt="1.772 sipariş, 32.712,74 dolar satış">
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-06.webp" width="505" height="589" loading="lazy" decoding="async" alt="1.323 sipariş, 26.015,33 dolar satış">
+        <img src="assets/img/s-06.webp" width="505" height="589" fetchpriority="low" decoding="async" alt="1.323 sipariş, 26.015,33 dolar satış">
       </figure>
     </div>
 
