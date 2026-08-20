@@ -76,8 +76,9 @@ section{padding-block:80px}
   backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line)}
 .nav-in{display:flex; align-items:center; justify-content:space-between; height:66px}
 .nav img{height:32px; width:auto; display:block}
+.nav-cta{display:flex; gap:10px; align-items:center}
 .nav .btn{min-height:42px; padding:9px 18px; font-size:.9rem}
-@media(max-width:640px){.nav .btn{display:none}}
+@media(max-width:860px){.nav-cta{display:none}}
 
 /* ========== HERO ========== */
 .hero{position:relative; padding-block:60px 84px; overflow:hidden}
@@ -138,7 +139,12 @@ section{padding-block:80px}
 
 /* ========== SERVICES ========== */
 .svc{display:grid; gap:22px}
-@media(min-width:900px){.svc{grid-template-columns:1fr 1fr; gap:26px; align-items:start}}
+/* tek program karti: genis kart, maddeler iki kolon */
+@media(min-width:820px){
+  .svc .card{padding:44px 48px}
+  .svc .ticks{grid-template-columns:1fr 1fr; column-gap:40px}
+  .svc .card>p{max-width:62ch}
+}
 .card{background:var(--navy-800); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px}
 @media(min-width:900px){.card{padding:38px}}
 .card-badge{display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.12em;
@@ -347,7 +353,10 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     <a href="#top" aria-label="EYLIFE LLC ana sayfa">
       <img src="assets/img/logo-mark.webp" width="300" height="228" alt="EYLIFE LLC">
     </a>
-    <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">Başvuru Formu</a>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">Topluluğa Katıl</a>
+      <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">Başvuru Formu</a>
+    </div>
   </div>
 </header>
 
@@ -456,8 +465,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <span class="eyebrow">Ne yapıyoruz</span>
       <h2 class="s-title">Önce canlı anlatıyoruz, sonra derste birlikte uyguluyoruz.</h2>
       <p class="s-lead">
-        6 haftalık eğitimde her adımı canlı anlatıyor, aynı derste birlikte uyguluyoruz.
-        Eğitim bittikten sonra da destek devam ediyor.
+        Her adımı önce canlı anlatıyor, aynı derste ekranı paylaşarak birlikte uyguluyoruz.
+        Eğitim bittikten sonra da yanınızdayız.
       </p>
     </div>
 
@@ -507,18 +516,6 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
           </ul>
         </details>
       </article>
-
-      <article class="card rv">
-        <span class="card-badge">Eğitim sonrası</span>
-        <h3>Eğitim bittiğinde bırakmıyoruz</h3>
-        <p>İlk satış bir bitiş değil, başlangıç. Sonrasındaki kararlarda da yanınızdayız.</p>
-        <ul class="ticks">
-          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9"/></svg>Ürün listesi, maliyet ve kâr kontrolü</li>
-          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9"/></svg>Sevkiyat planlaması ve stok yönetimi</li>
-          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9"/></svg>ABD şirketi (LLC) kuruluşunda birlikte ilerleme</li>
-          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 10.5l4 4 8-9"/></svg>Takıldığınız noktada doğrudan ulaşabilme</li>
-        </ul>
-      </article>
     </div>
   </div>
 </section>
@@ -527,11 +524,11 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
 <section id="basarilar">
   <div class="wrap">
     <div class="s-head rv">
-      <span class="eyebrow">Öğrenci sonuçları</span>
-      <h2 class="s-title">Aynı sistemi biz de kullanıyoruz.</h2>
+      <span class="eyebrow">Sonuçlar</span>
+      <h2 class="s-title">Anlattığımız sistemi biz de işletiyoruz.</h2>
       <p class="s-lead">
-        Aşağıdakilerin tamamı gerçek Amazon satıcı panellerinden alınmış ekran
-        görüntüleridir — hem bizim hem öğrencilerimizin hesaplarından.
+        Aşağıdaki her kare, gerçek Amazon satıcı panellerinden alınmış bir ekran
+        görüntüsüdür — hem kendi mağazalarımızdan hem öğrencilerimizin hesaplarından.
       </p>
     </div>
 
@@ -553,7 +550,6 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     <figure class="payout shot rv" style="border-radius:var(--r-md)">
       <img src="assets/img/payout.webp" width="760" height="501" loading="lazy" decoding="async" alt="Amazon Kanada'dan gelen ödeme bildirimi: 100.461,88 dolar">
       <div>
-        <b>$100.461,88</b>
         <b>$100.461,88</b>
         <span>Amazon Kanada'dan tek seferde gelen ödeme bildirimi.</span>
       </div>
@@ -653,7 +649,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
 <section class="alt" id="mesajlar">
   <div class="wrap">
     <div class="s-head rv" style="margin-bottom:34px">
-      <span class="eyebrow">Kendi telefonlarından</span>
+      <span class="eyebrow">Öğrencilerimizden</span>
       <h2 class="s-title">İlk satış geldiğinde gelen mesajlar.</h2>
       <p class="s-lead">
         Öğrencilerimizin ilk satışları geldiğinde bize gönderdikleri mesajlar.
@@ -905,12 +901,12 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Amazon'da daha üçüncü günden satışlara başladım. Sizler bize büyük resme bakmayı öğrettiniz.</blockquote>
-        <figcaption><span class="avatar">EY</span>Eğitim mezunu</figcaption>
+        <figcaption><span class="avatar">YD</span>Yiğit Mert Doğan</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Başlangıçta 0 bilgi ile girdiğim bu yolda, şu anda tamamen satış yapabilecek seviyeye ulaştık.</blockquote>
-        <figcaption><span class="avatar">EY</span>Eğitim mezunu</figcaption>
+        <figcaption><span class="avatar">UB</span>Umutcan Bey · sıfırdan başladı</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
@@ -920,12 +916,12 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Her şey için tekrardan çok teşekkür ederim. 6 haftalık bu eğitim gerçekten çok güzeldi.</blockquote>
-        <figcaption><span class="avatar">EY</span>Eğitim mezunu</figcaption>
+        <figcaption><span class="avatar">YB</span>Yiğit Bey · G-5 dönemi</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Emekleriniz için değerli vaktinizi ayırdınız; o kadar ülke değiştirip buna rağmen bizleri hiç geride bırakmadınız.</blockquote>
-        <figcaption><span class="avatar">EY</span>Eğitim mezunu</figcaption>
+        <figcaption><span class="avatar">MV</span>Muhammed V.</figcaption>
       </figure>
     </div>
   </div>
@@ -943,7 +939,6 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">
       Başvuru Formunu Doldurun
     </a>
-    <small>Form Google Forms üzerinden açılır. Herhangi bir ödeme bilgisi istenmez.</small>
   </div>
 </section>
 
