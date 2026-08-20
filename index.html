@@ -332,6 +332,15 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   background:rgba(148,163,184,.14); border:1px solid var(--line-2); color:var(--text);
   font-size:1.5rem; line-height:1; cursor:pointer; display:grid; place-items:center}
 .lb-x:hover{background:rgba(148,163,184,.24)}
+.lb-ok{position:absolute; top:50%; transform:translateY(-50%); width:52px; height:52px;
+  border-radius:50%; background:rgba(148,163,184,.14); border:1px solid var(--line-2);
+  color:var(--text); cursor:pointer; display:grid; place-items:center; z-index:2;
+  transition:background .15s, border-color .15s}
+.lb-ok:hover{background:rgba(148,163,184,.26); border-color:var(--text-3)}
+.lb-ok:disabled{opacity:.28; cursor:default}
+.lb-onceki{left:16px} .lb-sonraki{right:16px}
+@media(min-width:900px){.lb-onceki{left:32px} .lb-sonraki{right:32px}}
+.lb img{touch-action:pan-y}
 
 /* ========== CSS-ONLY SCROLL REVEAL (no JS) ========== */
 @supports (animation-timeline: view()) {
@@ -971,6 +980,12 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
 <!-- ========== LIGHTBOX ========== -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Ekran görüntüsü büyük görünüm">
   <button class="lb-x" id="lbx" aria-label="Kapat">&times;</button>
+  <button class="lb-ok lb-onceki" id="lbp" aria-label="Önceki görsel">
+    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.5 4 6.5 10l6 6"/></svg>
+  </button>
+  <button class="lb-ok lb-sonraki" id="lbn" aria-label="Sonraki görsel">
+    <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.5 4l6 6-6 6"/></svg>
+  </button>
   <div>
     <img id="lbi" src="" alt="">
     <p class="lb-cap" id="lbc"></p>
@@ -984,13 +999,42 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   /* lightbox — proof cards + phone screenshots */
   var lb=document.getElementById('lb'), lbi=document.getElementById('lbi'),
       lbc=document.getElementById('lbc'), lbx=document.getElementById('lbx'), last=null;
-  function open(fig){
-    var img=fig.querySelector('img'), cap=fig.querySelector('figcaption');
+  var lbp=document.getElementById('lbp'), lbn=document.getElementById('lbn');
+  var grup=[], sira=0;
+  function altyazi(fig, img){
+    var cap=fig.querySelector('figcaption'); if(!cap) return img.alt||'';
+    var b=cap.querySelector('b');
+    if(!b) return cap.textContent.trim();
+    var bas=b.textContent.trim();
+    var kalan=cap.textContent.replace(bas,'').trim();
+    return kalan ? bas+' · '+kalan : bas;   // birleşik yazılmasını önler
+  }
+  function goster(i){
+    if(i<0||i>=grup.length) return;
+    sira=i; var fig=grup[i], img=fig.querySelector('img');
     lbi.src=img.currentSrc||img.src; lbi.alt=img.alt;
-    lbc.textContent=(cap?cap.textContent.trim():'')||img.alt||'';
+    lbc.textContent=altyazi(fig,img);
+    lbp.disabled = i===0; lbn.disabled = i===grup.length-1;
+    var tek = grup.length<2;
+    lbp.hidden = tek; lbn.hidden = tek;
+  }
+  function open(fig){
+    var kap=fig.closest('.car, .panels, .extra, .records, .gal-lead, .proof-hero');
+    grup = kap ? [].slice.call(kap.querySelectorAll('.shot, .phone')) : [fig];
+    goster(grup.indexOf(fig));
     lb.setAttribute('open',''); document.body.style.overflow='hidden';
     last=document.activeElement; lbx.focus();
   }
+  lbp.addEventListener('click', function(e){ e.stopPropagation(); goster(sira-1); });
+  lbn.addEventListener('click', function(e){ e.stopPropagation(); goster(sira+1); });
+  /* kaydırma ile gezinme */
+  var dx0=null;
+  lb.addEventListener('touchstart', function(e){ dx0=e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if(dx0===null) return;
+    var d=e.changedTouches[0].clientX-dx0; dx0=null;
+    if(Math.abs(d)>50) goster(sira + (d<0?1:-1));
+  }, {passive:true});
   function close(){
     lb.removeAttribute('open'); document.body.style.overflow='';
     lbi.src=''; if(last&&last.focus) last.focus();
@@ -1004,7 +1048,12 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   });
   lbx.addEventListener('click', close);
   lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&lb.hasAttribute('open')) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!lb.hasAttribute('open')) return;
+    if(e.key==='Escape') close();
+    else if(e.key==='ArrowLeft') goster(sira-1);
+    else if(e.key==='ArrowRight') goster(sira+1);
+  });
 
   /* carousel arrows */
   var car=document.getElementById('car'),
@@ -1019,6 +1068,32 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   car.addEventListener('scroll', sync, {passive:true});
   window.addEventListener('resize', sync);
   sync();
+
+  /* 5 saniyede bir otomatik ilerle; kullanıcı temas edince dur */
+  var azalt = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var oto=null, gorunur=false;
+  function ilerle(){
+    if(lb.hasAttribute('open')) return;
+    if(car.scrollLeft > car.scrollWidth - car.clientWidth - 8)
+      car.scrollTo({left:0, behavior:'smooth'});
+    else
+      car.scrollBy({left:step(), behavior:'smooth'});
+  }
+  function basla(){ if(!oto && !azalt && gorunur) oto=setInterval(ilerle, 5000); }
+  function dur(){ if(oto){ clearInterval(oto); oto=null; } }
+  ['mouseenter','focusin','pointerdown','touchstart'].forEach(function(ev){
+    car.addEventListener(ev, dur, {passive:true});
+  });
+  ['mouseleave','focusout'].forEach(function(ev){
+    car.addEventListener(ev, basla, {passive:true});
+  });
+  [prev,next].forEach(function(b){ b.addEventListener('click', function(){ dur(); setTimeout(basla, 9000); }); });
+  document.addEventListener('visibilitychange', function(){ document.hidden ? dur() : basla(); });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ gorunur=e.isIntersecting; gorunur ? basla() : dur(); });
+    },{threshold:.2}).observe(car);
+  } else { gorunur=true; basla(); }
 
   /* güven şeridi: rakamlar ekrana girince sayarak yükselsin */
   var stats=document.querySelectorAll('.trust .stat b[data-to]');
