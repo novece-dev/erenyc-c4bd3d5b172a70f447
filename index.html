@@ -222,13 +222,13 @@ details.reveal-all:not([open])>summary .lbl-c{display:none}
   scroll-behavior:smooth; padding:6px 4px 20px; -webkit-overflow-scrolling:touch;
   scrollbar-width:none}
 .car::-webkit-scrollbar{display:none}
-.phone{flex:0 0 auto; width:236px; scroll-snap-align:center; margin:0}
-@media(min-width:640px){.phone{width:252px}}
+.phone{flex:0 0 auto; width:252px; scroll-snap-align:center; margin:0}
+@media(min-width:640px){.phone{width:290px}}
 .phone .dev{position:relative; border-radius:34px; padding:9px; background:linear-gradient(160deg,#26385c,#16233c); border:1px solid rgba(148,163,184,.3);
   box-shadow:var(--sh-lg), inset 0 1px 0 rgba(255,255,255,.13)}
 .phone .dev::before{content:""; position:absolute; left:50%; top:16px; transform:translateX(-50%);
   width:58px; height:6px; border-radius:6px; background:rgba(0,0,0,.55); z-index:2}
-.phone img{width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:26px; display:block; background:#fff}
+.phone img{width:100%; aspect-ratio:.62; object-fit:cover; border-radius:26px; display:block; background:#fff}
 .phone figcaption{margin-top:16px; font-size:.83rem; color:var(--text-2); line-height:1.5; text-align:center}
 .phone figcaption b{color:var(--accent); display:block; font-size:.95rem; margin-bottom:3px}
 .car-nav{display:flex; gap:10px; justify-content:flex-end; margin-top:4px}
@@ -264,6 +264,11 @@ details.reveal-all:not([open])>summary .lbl-c{display:none}
   border-radius:var(--r-lg); overflow:hidden; border:1px solid var(--line-2);
   box-shadow:var(--sh-lg); background:#000}
 .vid-frame video{width:100%; display:block}
+.snd{position:absolute; right:12px; bottom:12px; z-index:3; display:inline-flex; align-items:center;
+  gap:7px; padding:8px 14px; border-radius:var(--r-pill); cursor:pointer;
+  background:rgba(6,15,30,.86); border:1px solid var(--line-2); color:var(--text);
+  font:inherit; font-size:.74rem; font-weight:600; transition:background .15s,border-color .15s}
+.snd:hover{background:rgba(6,15,30,.96); border-color:var(--text-3)}
 .vid-label{position:absolute; left:12px; bottom:12px; z-index:2; background:rgba(6,15,30,.86);
   border:1px solid var(--line-2); border-radius:var(--r-pill); padding:6px 13px;
   font-size:.74rem; font-weight:600; display:flex; align-items:center; gap:7px}
@@ -274,6 +279,9 @@ details.reveal-all:not([open])>summary .lbl-c{display:none}
 .cta p{color:var(--text-2); margin-top:18px}
 .cta .btn{margin-top:34px}
 .cta small{display:block; margin-top:20px; color:var(--text-3); font-size:.82rem}
+.comm-band{background:linear-gradient(150deg,var(--navy-800),var(--navy-950) 78%);
+  border-block:1px solid var(--line); padding-block:64px}
+@media(min-width:768px){.comm-band{padding-block:80px}}
 .comm{border:1px solid var(--line); border-radius:var(--r-lg); padding:30px; background:var(--navy-800);
   display:grid; gap:22px; align-items:center}
 @media(min-width:760px){.comm{grid-template-columns:1fr auto; padding:38px 44px; gap:34px}}
@@ -337,10 +345,11 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   <div class="wrap hero-in">
     <div>
       <span class="eyebrow">EYLIFE LLC · Amazon eğitim &amp; danışmanlık</span>
-      <h1>Amazon'da kendi satış işinizi <em>sıfırdan</em> kurun.</h1>
+      <h1>Amazon'da satmayı anlatmıyoruz — <em>birlikte</em> satıyoruz.</h1>
       <p class="hero-lead">
-        8 yıldır Amazon'da aktif satış yapan bir ekiple çalışın. 6 haftalık canlı eğitim ve
-        sonrasında da devam eden danışmanlıkla; şirket kuruluşundan ilk kolinize kadar yanınızdayız.
+        8 yıldır Amazon'da aktif satış yapan bir ekiple çalışın. 6 haftalık canlı eğitimde
+        şirket kuruluşundan ürün seçimine, ilk kolinizden ilk satışınıza kadar her adımı
+        ekranı paylaşarak birlikte uyguluyoruz.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">
@@ -384,7 +393,6 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <figure class="portrait-wrap rv" style="margin:0">
         <img class="portrait" src="assets/img/eren-worldef.webp" width="760" height="950"
              loading="lazy" decoding="async" alt="Eren Yücek, WORLDEF İstanbul e-ticaret fuarında">
-        <figcaption>WORLDEF İstanbul e-ticaret fuarı</figcaption>
       </figure>
       <div class="rv">
         <span class="eyebrow">Eğitmen</span>
@@ -533,8 +541,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <h2 class="s-title">Aynı sistemi biz de kullanıyoruz.</h2>
       <p class="s-lead">
         Aşağıdakilerin tamamı gerçek Amazon satıcı panellerinden alınmış ekran
-        görüntüleridir — hem bizim hem öğrencilerimizin hesaplarından. İsimler ve
-        kişisel detaylar gizlilik gereği kapatılmıştır.
+        görüntüleridir — hem bizim hem öğrencilerimizin hesaplarından. Hesap numaraları
+        ve araç plakaları dışında hiçbir yeri kapatılmamıştır.
       </p>
     </div>
 
@@ -602,6 +610,12 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
         <figure class="shot">
           <img src="assets/img/c-1523.webp" width="599" height="690" loading="lazy" decoding="async" alt="1.523,04 Kanada doları satış, net kâr 812,32 Kanada doları">
         </figure>
+        <figure class="shot">
+          <img src="assets/img/c-810.webp" width="614" height="690" loading="lazy" decoding="async" alt="810,01 dolar satış, net kâr 232,10 dolar">
+        </figure>
+        <figure class="shot">
+          <img src="assets/img/c-739.webp" width="622" height="690" loading="lazy" decoding="async" alt="739,96 dolar satış, net kâr 325,63 dolar">
+        </figure>
       </div>
     </details>
 
@@ -620,8 +634,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <span class="eyebrow">Kendi telefonlarından</span>
       <h2 class="s-title">İlk satış geldiğinde gelen mesajlar.</h2>
       <p class="s-lead">
-        Öğrencilerimizin bize gönderdiği gerçek mesajlar. İsimler, profil fotoğrafları,
-        araç plakaları ve konum bilgileri kapatılmıştır.
+        Öğrencilerimizin bize gönderdiği gerçek mesajlar — hiçbiri düzenlenmedi.
+        Yalnızca kadraja giren araç plakaları kapatılmıştır.
       </p>
     </div>
 
@@ -637,27 +651,86 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     <div class="car-wrap rv">
       <div class="car" id="car" tabindex="0" aria-label="Öğrenci mesajları galerisi">
         <figure class="phone">
-          <div class="dev"><img src="assets/img/m5.webp" width="640" height="1138" loading="lazy" decoding="async" alt="Öğrenci mesajı: 5 ayda 34.591 dolar satış"></div>
-          <figcaption><b>5 ayda $34.591</b>“Sizinle Amazon serüvenine başlayalı sadece 5 ay oldu.”</figcaption>
+          <div class="dev"><img src="assets/img/n01.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 1 günde $6.019,45"></div>
+          <figcaption><b>1 günde $6.019,45</b>368 sipariş · tek günde</figcaption>
         </figure>
         <figure class="phone">
-          <div class="dev"><img src="assets/img/m3.webp" width="640" height="1138" loading="lazy" decoding="async" alt="Öğrenci mesajı: bir günde 672 dolar satış"></div>
+          <div class="dev"><img src="assets/img/n02.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 5 ayda $34.591"></div>
+          <figcaption><b>5 ayda $34.591</b>1.506.750 TL ciro</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n03.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 40 günde $2.561,69"></div>
+          <figcaption><b>40 günde $2.561,69</b>93.420 TL satış</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n04.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 1 günde $672"></div>
           <figcaption><b>1 günde $672</b>G-12 dönemi öğrencisi</figcaption>
         </figure>
         <figure class="phone">
-          <div class="dev"><img src="assets/img/m1.webp" width="640" height="1138" loading="lazy" decoding="async" alt="Öğrenci mesajı: ürünler depoya ulaştığı gün 12 sipariş"></div>
+          <div class="dev"><img src="assets/img/n05.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 10 günde $1.255"></div>
+          <figcaption><b>10 günde $1.255</b>İlk 10 günün satış verileri</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n06.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 5 saatte $242,40"></div>
+          <figcaption><b>5 saatte $242,40</b>“Benim konuşmama gerek yok, her şey ortada.”</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n07.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: İlk günden $117"></div>
+          <figcaption><b>İlk günden $117</b>İlk koli depoya ulaşır ulaşmaz</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n08.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: İlk günden 12 sipariş"></div>
           <figcaption><b>İlk günden 12 sipariş</b>“kargomuz ulaştı ilk günden 12 sipariş”</figcaption>
         </figure>
         <figure class="phone">
-          <div class="dev"><img src="assets/img/m4.webp" width="640" height="1138" loading="lazy" decoding="async" alt="Öğrenci mesajı: üçüncü günden itibaren satış"></div>
+          <div class="dev"><img src="assets/img/n09.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: 3. günde ilk satış"></div>
           <figcaption><b>3. günde ilk satış</b>“Amazon'da daha üçüncü günden satışlara başladım.”</figcaption>
         </figure>
         <figure class="phone">
-          <div class="dev"><img src="assets/img/m2.webp" width="640" height="1138" loading="lazy" decoding="async" alt="Öğrenci mesajı: ilk satış geldi"></div>
+          <div class="dev"><img src="assets/img/n10.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: Tek satıştan net kâr $55,88"></div>
+          <figcaption><b>Tek satıştan net kâr $55,88</b>G-11 dönemi öğrencisi</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n11.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: Tek satıştan net kâr $15,90"></div>
+          <figcaption><b>Tek satıştan net kâr $15,90</b>G-12 dönemi öğrencisi</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n12.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: “İlk satış geldiii”"></div>
           <figcaption><b>“İlk satış geldiii”</b>G-13 dönemi öğrencisi</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n13.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: Koliler yola çıkıyor"></div>
+          <figcaption><b>Koliler yola çıkıyor</b>ABD ve Kanada depolarına sevkiyat</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n14.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: Yoldayken bile koli hazırlıyorlar"></div>
+          <figcaption><b>Yoldayken bile koli hazırlıyorlar</b>“Yolculuk yaparken bile devam ediyoruz.”</figcaption>
+        </figure>
+        <figure class="phone">
+          <div class="dev"><img src="assets/img/n15.webp" width="560" height="903" loading="lazy" decoding="async" alt="Öğrenci mesajı: Taner Bey · G-14 dönemi"></div>
+          <figcaption><b>Taner Bey · G-14 dönemi</b>“Bu zamana kadar yanımda olup hep bir şeyleri öğrettiniz.”</figcaption>
         </figure>
       </div>
       <p class="car-hint">Kaydırarak gezinebilir, görsele dokunarak büyütebilirsiniz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TOPLULUK ========== -->
+<section class="comm-band">
+  <div class="wrap">
+    <div class="comm rv">
+      <div>
+        <span class="eyebrow">Topluluk</span>
+        <h3>WhatsApp topluluğumuza katılın</h3>
+        <p>
+          Duyurular, yeni dönem tarihleri ve Amazon tarafındaki güncel değişiklikler
+          topluluk kanalından paylaşılıyor.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">
+        Topluluğa Katıl
+      </a>
     </div>
   </div>
 </section>
@@ -668,9 +741,13 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     <div class="vid-grid">
       <div class="vid-frame rv">
         <span class="vid-label"><span class="dot"></span>Canlı dersten</span>
+        <button type="button" class="snd" id="snd" aria-pressed="false" aria-label="Sesi aç">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7.5h3L11 4v12L7 12.5H4z"/><path d="M14 7.5a4 4 0 0 1 0 5"/></svg>
+          <span>Sesi aç</span>
+        </button>
         <video src="assets/video/canli-ders.mp4" poster="assets/video/canli-ders-poster.jpg"
                muted loop playsinline autoplay preload="none"
-               aria-label="Canlı Zoom dersinden bulanıklaştırılmış kısa bir kesit"></video>
+               aria-label="Canlı Zoom dersinden kısa bir kesit"></video>
       </div>
       <div class="rv">
         <span class="eyebrow">Dersler nasıl işleniyor</span>
@@ -681,8 +758,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
           kayıtları ayrıca öğrencilerle özel olarak paylaşılıyor.
         </p>
         <p class="s-lead" style="margin-top:18px; font-size:.87rem; color:var(--text-3)">
-          Bu kesit gerçek bir dersten alınmıştır. Katılımcıların gizliliği için görüntü
-          bulanıklaştırılmış ve ses kaldırılmıştır.
+          Bu kesit gerçek bir dersten alınmıştır. Sesi açmak için görüntünün üzerindeki
+          düğmeye dokunun.
         </p>
       </div>
     </div>
@@ -696,8 +773,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <span class="eyebrow">Öğrenci yorumları</span>
       <h2 class="s-title">Kendi cümleleriyle.</h2>
       <p class="s-lead">
-        Aşağıdaki yorumlar öğrencilerimizin bize gönderdiği mesajlardan alınmıştır.
-        İsimler, açık rıza alınana kadar paylaşılmamaktadır.
+        Aşağıdaki yorumlar öğrencilerimizin bize gönderdiği mesajlardan birebir alınmıştır.
+        Mesajların ekran görüntülerini yukarıdaki bölümde görebilirsiniz.
       </p>
     </div>
 
@@ -761,31 +838,13 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   </div>
 </section>
 
-<!-- ========== TOPLULUK ========== -->
-<section class="alt">
-  <div class="wrap">
-    <div class="comm rv">
-      <div>
-        <span class="eyebrow">Topluluk</span>
-        <h3>WhatsApp topluluğumuza katılın</h3>
-        <p>
-          Duyurular, yeni dönem tarihleri ve Amazon tarafındaki güncel değişiklikler
-          topluluk kanalından paylaşılıyor.
-        </p>
-      </div>
-      <a class="btn btn-primary" href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">
-        Topluluğa Katıl
-      </a>
-    </div>
-  </div>
-</section>
 
 <!-- ========== FERAGAT ========== -->
 <div class="disc">
   <div class="wrap">
     <p><b>Sonuçlar hakkında:</b> Paylaşılan sonuçlar gerçek öğrenci verileridir; her katılımcı için aynı sonuç garanti edilmez.</p>
     <p><b>Bağımsızlık:</b> Bu site Amazon'dan bağımsızdır, resmî bir ortaklık içermez. Amazon ve ilgili markalar sahiplerine aittir.</p>
-    <p><b>Gizlilik:</b> Sayfadaki ekran görüntülerinde yer alan isimler, profil fotoğrafları, araç plakaları, hesap numaraları ve konum bilgileri, ilgili kişilerin açık rızası alınana kadar kapatılmış veya kırpılmıştır.</p>
+    <p><b>Gizlilik:</b> Ekran görüntüleri öğrencilerimizin bilgisi dâhilinde paylaşılmaktadır. Banka hesap numaraları ve kadraja giren araç plakaları kapatılmıştır. Paylaşılmasını istemediğini belirten öğrencilerimizin mesajları sayfada yer almamaktadır.</p>
   </div>
 </div>
 
@@ -887,6 +946,19 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       es.forEach(function(e){ if(e.isIntersecting){ say(e.target); so.unobserve(e.target); } });
     },{threshold:.6});
     stats.forEach(function(el){ so.observe(el); });
+  }
+
+  /* video ses düğmesi (tarayıcılar sesli otomatik oynatmaya izin vermez) */
+  var snd=document.getElementById('snd');
+  var vid=document.querySelector('.vid-frame video');
+  if(snd && vid){
+    snd.addEventListener('click', function(){
+      vid.muted = !vid.muted;
+      snd.setAttribute('aria-pressed', String(!vid.muted));
+      snd.setAttribute('aria-label', vid.muted ? 'Sesi aç' : 'Sesi kapat');
+      snd.querySelector('span').textContent = vid.muted ? 'Sesi aç' : 'Sesi kapat';
+      if(!vid.muted){ var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){}); }
+    });
   }
 
   /* pause the clip when off-screen */
