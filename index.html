@@ -128,7 +128,8 @@ section{padding-block:80px}
 .portrait{width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--r-xl);
   border:1px solid var(--line-2); box-shadow:var(--sh-lg)}
 .brand-name{font-size:clamp(1.6rem,4vw,2rem); margin-bottom:6px}
-.brand-role{color:var(--accent); font-weight:600; font-size:.9rem; letter-spacing:.04em}
+.brand-role{color:var(--accent); font-weight:700; font-size:.95rem; letter-spacing:.04em}
+.brand-role2{color:var(--text-3); font-weight:500; font-size:.88rem; margin-top:6px}
 .brand-body{color:var(--text-2); margin-top:26px}
 .brand-body p+p{margin-top:16px}
 .brand-body .sign{margin-top:24px; color:var(--accent); font-weight:600; font-size:.92rem;
@@ -196,10 +197,10 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .records{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:44px}
 @media(min-width:640px){.records{grid-template-columns:repeat(3,1fr); gap:16px}}
 @media(min-width:1000px){.records{grid-template-columns:repeat(6,1fr)}}
-.records .shot img,.extra .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
+.records .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
 /* görsel inene kadar kart boş değil, iskelet görünsün */
-.records .shot,.extra .shot{background:#EEF2F7}
-.records .shot img,.extra .shot img{background:transparent}
+.records .shot,.panels .shot{background:#EEF2F7}
+.records .shot img{background:transparent}
 .records .shot{border-radius:var(--r-md)}
 .panels{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:24px}
 @media(min-width:640px){.panels{grid-template-columns:repeat(3,1fr); gap:16px}}
@@ -211,26 +212,7 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .rec-head p{font-size:.9rem; color:var(--text-3)}
 /* DİKKAT: <details> üzerinde display:flex kapalıyken içeriği sızdırır.
    Bu yüzden flex YALNIZCA [open] durumunda uygulanıyor. */
-details.reveal-all{margin-top:34px}
-details.reveal-all[open]{display:flex; flex-direction:column; align-items:center}
-details.reveal-all>summary{cursor:pointer; list-style:none; display:flex; align-items:center;
-  width:max-content; margin-inline:auto;
-  gap:10px; min-height:48px; padding:12px 26px; border:1px solid var(--line-2);
-  border-radius:var(--r-sm); font-weight:600; font-size:.94rem; color:var(--text);
-  transition:border-color .15s, background .15s}
-details.reveal-all>summary:hover{border-color:var(--text-3); background:rgba(148,163,184,.08)}
-details.reveal-all>summary::-webkit-details-marker{display:none}
-details.reveal-all>.extra{width:100%}
 /* açıkken buton, ortaya hizalı biçimde içeriğin ALTINA iner */
-details.reveal-all[open]>.extra{order:1}
-details.reveal-all[open]>summary{order:2; margin-top:30px}
-details.reveal-all[open]>summary .lbl-o{display:none}
-details.reveal-all:not([open])>summary .lbl-c{display:none}
-/* genişleyen bölüm, kayıt ızgarasıyla birebir aynı kart dilini kullanır */
-.extra{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
-@media(min-width:640px){.extra{grid-template-columns:repeat(3,1fr); gap:16px}}
-@media(min-width:1000px){.extra{grid-template-columns:repeat(6,1fr)}}
-.extra .shot{border-radius:var(--r-md)}
 .gal-note{margin-top:32px; font-size:.84rem; color:var(--text-3); max-width:70ch}
 
 /* ========== PHONE CAROUSEL ========== */
@@ -363,7 +345,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     </a>
     <div class="nav-cta">
       <a class="btn btn-ghost" href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">Topluluğa Katıl</a>
-      <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">Başvuru Formu</a>
+      <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">1-1 Görüşme Formu</a>
     </div>
   </div>
 </header>
@@ -381,7 +363,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">
-          Başvuru Formunu Doldurun
+          1-1 Görüşme Formunu Doldurun
         </a>
         <a class="btn btn-ghost" href="#basarilar">Öğrenci sonuçlarını görün</a>
       </div>
@@ -424,7 +406,8 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <div class="rv">
         <span class="eyebrow">Eğitmen</span>
         <h2 class="s-title brand-name">Eren Yücek</h2>
-        <p class="brand-role">Amazon E-Ticaret Uzmanı · Girişimci &amp; Mentor</p>
+        <p class="brand-role">EYLIFE LLC · Kurucu &amp; CEO</p>
+        <p class="brand-role2">Amazon E-Ticaret Uzmanı · Girişimci &amp; Mentor</p>
         <div class="brand-body">
           <p>
             E-ticaret dünyasında geçirdiğim 8 yılı aşkın sürede, sadece bir iş modeli değil;
@@ -586,6 +569,21 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <figure class="shot">
         <img src="assets/img/s-06.webp" width="505" height="589" fetchpriority="low" decoding="async" alt="1.323 sipariş, 26.015,33 dolar satış">
       </figure>
+      <figure class="shot">
+          <img src="assets/img/s-05.webp" width="506" height="601" loading="lazy" decoding="async" alt="909 sipariş, 17.560,93 dolar satış">
+        </figure>
+      <figure class="shot">
+          <img src="assets/img/c-order.webp" width="760" height="866" loading="lazy" decoding="async" alt="1.445,13 Kanada doları satış, net kâr 674,35 Kanada doları">
+        </figure>
+      <figure class="shot">
+          <img src="assets/img/c-1523.webp" width="599" height="690" loading="lazy" decoding="async" alt="1.523,04 Kanada doları satış, net kâr 812,32 Kanada doları">
+        </figure>
+      <figure class="shot">
+          <img src="assets/img/c-810.webp" width="614" height="690" loading="lazy" decoding="async" alt="810,01 dolar satış, net kâr 232,10 dolar">
+        </figure>
+      <figure class="shot">
+          <img src="assets/img/c-739.webp" width="622" height="690" loading="lazy" decoding="async" alt="739,96 dolar satış, net kâr 325,63 dolar">
+        </figure>
     </div>
 
     <div class="rec-head rv">
@@ -622,30 +620,6 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
         <figcaption><b>Eda Hanım · G-6 dönemi</b></figcaption>
       </figure>
     </div>
-
-    <details class="reveal-all rv">
-      <summary>
-        <span class="lbl-o">Tüm sonuçları gör</span>
-        <span class="lbl-c">Daha az göster</span>
-      </summary>
-      <div class="extra">
-        <figure class="shot">
-          <img src="assets/img/s-05.webp" width="506" height="601" loading="lazy" decoding="async" alt="909 sipariş, 17.560,93 dolar satış">
-        </figure>
-        <figure class="shot">
-          <img src="assets/img/c-order.webp" width="760" height="866" loading="lazy" decoding="async" alt="1.445,13 Kanada doları satış, net kâr 674,35 Kanada doları">
-        </figure>
-        <figure class="shot">
-          <img src="assets/img/c-1523.webp" width="599" height="690" loading="lazy" decoding="async" alt="1.523,04 Kanada doları satış, net kâr 812,32 Kanada doları">
-        </figure>
-        <figure class="shot">
-          <img src="assets/img/c-810.webp" width="614" height="690" loading="lazy" decoding="async" alt="810,01 dolar satış, net kâr 232,10 dolar">
-        </figure>
-        <figure class="shot">
-          <img src="assets/img/c-739.webp" width="622" height="690" loading="lazy" decoding="async" alt="739,96 dolar satış, net kâr 325,63 dolar">
-        </figure>
-      </div>
-    </details>
 
     <p class="gal-note">
       Tutarlar farklı öğrencilere, farklı dönemlere ve farklı pazarlara (ABD / Kanada) aittir.
@@ -896,7 +870,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
         İyi ki sizi seçmişim gerçekten. Süreç boyunca desteğinizi hiç esirgemediniz.
         Şu an yaklaşık 1,5–2 ay oldu ve 2000 dolar satış baremini geçmiş durumdayım.
       </blockquote>
-      <figcaption><span class="avatar">EY</span>Eğitim mezunu · 6 haftalık program</figcaption>
+      <figcaption><span class="avatar">EY</span>Eğitim mezunu · 1,5 ayda $2.000 barajı</figcaption>
     </figure>
 
     <div class="q-grid">
@@ -908,27 +882,27 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Amazon'da daha üçüncü günden satışlara başladım. Sizler bize büyük resme bakmayı öğrettiniz.</blockquote>
-        <figcaption><span class="avatar">YD</span>Yiğit Mert Doğan</figcaption>
+        <figcaption><span class="avatar">EY</span>Eğitim mezunu · 3. günde ilk satış</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Başlangıçta 0 bilgi ile girdiğim bu yolda, şu anda tamamen satış yapabilecek seviyeye ulaştık.</blockquote>
-        <figcaption><span class="avatar">UB</span>Umutcan Bey · sıfırdan başladı</figcaption>
+        <figcaption><span class="avatar">EY</span>Eğitim mezunu · 0 bilgiyle başladı</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Bir iş arkadaşından çok bir abi gibi her daim buradasınız. Çok teşekkür ederim, iyi ki varsınız.</blockquote>
-        <figcaption><span class="avatar">G5</span>G-5 dönemi</figcaption>
+        <figcaption><span class="avatar">EY</span>Eğitim mezunu · sesli mesaj</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Her şey için tekrardan çok teşekkür ederim. 6 haftalık bu eğitim gerçekten çok güzeldi.</blockquote>
-        <figcaption><span class="avatar">YB</span>Yiğit Bey · G-5 dönemi</figcaption>
+        <figcaption><span class="avatar">G5</span>G-5 dönemi öğrencisi</figcaption>
       </figure>
       <figure class="q rv">
         <span class="mark">“</span>
         <blockquote>Emekleriniz için değerli vaktinizi ayırdınız; o kadar ülke değiştirip buna rağmen bizleri hiç geride bırakmadınız.</blockquote>
-        <figcaption><span class="avatar">MV</span>Muhammed V.</figcaption>
+        <figcaption><span class="avatar">EY</span>Eğitim mezunu · Instagram'dan</figcaption>
       </figure>
     </div>
   </div>
@@ -944,7 +918,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       ve programın size uygun olup olmadığını birlikte değerlendiriyoruz.
     </p>
     <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">
-      Başvuru Formunu Doldurun
+      1-1 Görüşme Formunu Doldurun
     </a>
   </div>
 </section>
@@ -964,7 +938,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
         <a href="#yorumlar">Yorumlar</a>
         <a href="https://www.instagram.com/erenyck1/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">Topluluk</a>
-        <a href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">Başvuru</a>
+        <a href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">1-1 Görüşme</a>
       </nav>
       <p class="copy">© <span id="yr">2026</span> EYLIFE LLC. Tüm hakları saklıdır.</p>
     </div>
@@ -973,7 +947,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
 
 <!-- ========== MOBİL SABİT ÇUBUK ========== -->
 <div class="bar">
-  <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">Başvuru Formu</a>
+  <a class="btn btn-primary" href="https://forms.gle/NaGkbPTYrpz2crJJA" target="_blank" rel="noopener">1-1 Görüşme Formu</a>
   <a class="btn btn-ghost" href="https://chat.whatsapp.com/BFsw3aI2OuN3Bb9zR9eu8Y" target="_blank" rel="noopener">Topluluk</a>
 </div>
 
@@ -1019,7 +993,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     lbp.hidden = tek; lbn.hidden = tek;
   }
   function open(fig){
-    var kap=fig.closest('.car, .panels, .extra, .records, .gal-lead, .proof-hero');
+    var kap=fig.closest('.car, .panels, .records, .gal-lead, .proof-hero');
     grup = kap ? [].slice.call(kap.querySelectorAll('.shot, .phone')) : [fig];
     goster(grup.indexOf(fig));
     lb.setAttribute('open',''); document.body.style.overflow='hidden';
