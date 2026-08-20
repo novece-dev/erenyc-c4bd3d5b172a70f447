@@ -190,6 +190,12 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .records .shot,.extra .shot{background:#EEF2F7}
 .records .shot img,.extra .shot img{background:transparent}
 .records .shot{border-radius:var(--r-md)}
+.panels{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:24px}
+@media(min-width:640px){.panels{grid-template-columns:repeat(3,1fr); gap:16px}}
+@media(min-width:1000px){.panels{grid-template-columns:repeat(4,1fr)}}
+.panels .shot{border-radius:var(--r-md)}
+.panels .shot img{aspect-ratio:.62; object-fit:contain; background:#fff}
+.panels .shot figcaption{padding:11px 13px; font-size:.75rem; text-align:center}
 .rec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:12px; margin-top:64px}
 .rec-head p{font-size:.9rem; color:var(--text-3)}
 /* DİKKAT: <details> üzerinde display:flex kapalıyken içeriği sızdırır.
@@ -592,6 +598,41 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       </figure>
       <figure class="shot">
         <img src="assets/img/s-06.webp" width="505" height="589" fetchpriority="low" decoding="async" alt="1.323 sipariş, 26.015,33 dolar satış">
+      </figure>
+    </div>
+
+    <div class="rec-head rv">
+      <h3 class="sub-h">Panellerden gelen diğer kareler</h3>
+      <p>Öğrencilerin kendi ekranlarından.</p>
+    </div>
+    <div class="panels rv">
+      <figure class="shot">
+        <img src="assets/img/e1.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: 4 ayda $15.300">
+        <figcaption><b>4 ayda $15.300</b><br>Satıcı panelinde yıllık toplam</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e2.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: Tek satıştan net kâr $126,64">
+        <figcaption><b>Tek satıştan net kâr $126,64</b><br>G-3 dönemi öğrencisi</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e3.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: 1 günde C$239,37 satış">
+        <figcaption><b>1 günde C$239,37 satış</b><br>“Durmak yok.”</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e4.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: 3. günden $115">
+        <figcaption><b>3. günden $115</b><br>Yiğit Mert Doğan</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e5.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: Amazon'dan gelen ödeme $1.071">
+        <figcaption><b>Amazon'dan gelen ödeme $1.071</b><br>“Amazon'dan ödemeler geliyor.”</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e6.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: Sayım sürerken $200'lık satış">
+        <figcaption><b>Sayım sürerken $200'lık satış</b><br>“Daha ürünleri sayımdayken.”</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/img/e7.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: Eda Hanım · G-6 dönemi">
+        <figcaption><b>Eda Hanım · G-6 dönemi</b><br>“İşini iyi yapınca böyle mesajlar alıyor insan.”</figcaption>
       </figure>
     </div>
 
