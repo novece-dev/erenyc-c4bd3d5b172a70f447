@@ -194,7 +194,8 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .payout b{display:block; font-size:1.5rem; letter-spacing:-.02em}
 .payout span{display:block; margin-top:8px; font-size:.86rem; color:#475569; line-height:1.55}
 /* uniform record grid */
-.records{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:44px}
+.records{display:grid; grid-template-columns:1fr; gap:14px; margin-top:44px}
+@media(min-width:480px){.records{grid-template-columns:repeat(2,1fr); gap:12px}}
 @media(min-width:640px){.records{grid-template-columns:repeat(3,1fr); gap:16px}}
 @media(min-width:1000px){.records{grid-template-columns:repeat(6,1fr)}}
 .records .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
@@ -213,7 +214,6 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 /* DİKKAT: <details> üzerinde display:flex kapalıyken içeriği sızdırır.
    Bu yüzden flex YALNIZCA [open] durumunda uygulanıyor. */
 /* açıkken buton, ortaya hizalı biçimde içeriğin ALTINA iner */
-.gal-note{margin-top:32px; font-size:.84rem; color:var(--text-3); max-width:70ch}
 
 /* ========== PHONE CAROUSEL ========== */
 .car-wrap{position:relative; margin-top:8px}
@@ -404,9 +404,9 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
              loading="lazy" decoding="async" alt="Eren Yücek, WORLDEF İstanbul e-ticaret fuarında">
       </figure>
       <div class="rv">
-        <span class="eyebrow">Eğitmen</span>
+        <span class="eyebrow">Kurucu &amp; CEO</span>
         <h2 class="s-title brand-name">Eren Yücek</h2>
-        <p class="brand-role">EYLIFE LLC · Kurucu &amp; CEO</p>
+        <p class="brand-role">EYLIFE LLC</p>
         <p class="brand-role2">Amazon E-Ticaret Uzmanı · Girişimci &amp; Mentor</p>
         <div class="brand-body">
           <p>
@@ -619,11 +619,11 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
         <img src="assets/img/e7.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci kanıtı: Eda Hanım · G-6 dönemi">
         <figcaption><b>Eda Hanım · G-6 dönemi</b></figcaption>
       </figure>
+      <figure class="shot">
+        <img src="assets/img/e8.webp" width="520" height="839" loading="lazy" decoding="async" alt="Öğrenci yorumu: Bir saniye dahi pişman olmadım">
+        <figcaption><b>“1 saniye dahi pişman olmadım”</b></figcaption>
+      </figure>
     </div>
-
-    <p class="gal-note">
-      Tutarlar farklı öğrencilere, farklı dönemlere ve farklı pazarlara (ABD / Kanada) aittir.
-    </p>
   </div>
 </section>
 
@@ -632,10 +632,9 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
   <div class="wrap">
     <div class="s-head rv" style="margin-bottom:34px">
       <span class="eyebrow">Öğrencilerimizden</span>
-      <h2 class="s-title">İlk satış geldiğinde gelen mesajlar.</h2>
+      <h2 class="s-title">Öğrencilerimizin bize gönderdiği değerli yorumlar.</h2>
       <p class="s-lead">
-        Öğrencilerimizin ilk satışları geldiğinde bize gönderdikleri mesajlar.
-        Hepsi kendi telefonlarından, olduğu gibi.
+        Sonuçlarını ve düşüncelerini kendi telefonlarından paylaştılar — olduğu gibi.
       </p>
     </div>
 
