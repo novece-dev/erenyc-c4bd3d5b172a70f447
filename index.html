@@ -194,15 +194,15 @@ details.more[open]>summary::after{transform:rotate(45deg)}
 .payout b{display:block; font-size:1.5rem; letter-spacing:-.02em}
 .payout span{display:block; margin-top:8px; font-size:.86rem; color:#475569; line-height:1.55}
 /* uniform record grid */
-.records{display:grid; grid-template-columns:1fr; gap:14px; margin-top:44px}
-@media(min-width:480px){.records{grid-template-columns:repeat(2,1fr); gap:12px}}
-@media(min-width:640px){.records{grid-template-columns:repeat(3,1fr); gap:16px}}
-@media(min-width:1000px){.records{grid-template-columns:repeat(6,1fr)}}
-.records .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
-/* görsel inene kadar kart boş değil, iskelet görünsün */
-.records .shot,.panels .shot{background:#EEF2F7}
-.records .shot img{background:transparent}
-.records .shot{border-radius:var(--r-md)}
+/* satıcı paneli şeritleri — orijinal yatay formatında, tam genişlik */
+.strips{display:grid; gap:12px; margin-top:44px}
+.strips .shot{border-radius:var(--r-md); cursor:zoom-in}
+.strips .shot img{display:block; width:100%; height:auto}
+/* kâr/ciro özet kartları */
+.dash{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:12px}
+@media(min-width:760px){.dash{grid-template-columns:repeat(4,1fr); gap:16px}}
+.dash .shot{border-radius:var(--r-md)}
+.dash .shot img{aspect-ratio:.845; object-fit:contain; object-position:center; padding:6px}
 .panels{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:24px}
 @media(min-width:640px){.panels{grid-template-columns:repeat(3,1fr); gap:16px}}
 @media(min-width:1000px){.panels{grid-template-columns:repeat(4,1fr)}}
@@ -550,40 +550,64 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
       <h3 class="sub-h">Satıcı paneli kayıtları</h3>
       <p>Farklı öğrenciler, farklı dönemler.</p>
     </div>
-    <div class="records rv">
+    <div class="strips rv">
       <figure class="shot">
-        <img src="assets/img/s-09.webp" width="551" height="601" fetchpriority="low" decoding="async" alt="5.871 sipariş, 108.919,05 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-09.webp">
+          <img src="assets/img/h-09-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 5.871 sipariş, 6.155 birim, 108.919,05 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-04.webp" width="508" height="604" fetchpriority="low" decoding="async" alt="5.063 sipariş, 93.082,58 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-04.webp">
+          <img src="assets/img/h-04-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 5.063 sipariş, 5.294 birim, 93.082,58 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-02.webp" width="506" height="604" fetchpriority="low" decoding="async" alt="4.929 sipariş, 90.769,33 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-02.webp">
+          <img src="assets/img/h-02-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 4.929 sipariş, 5.158 birim, 90.769,33 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-03.webp" width="507" height="601" fetchpriority="low" decoding="async" alt="2.754 sipariş, 52.257,79 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-03.webp">
+          <img src="assets/img/h-03-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 2.754 sipariş, 2.883 birim, 52.257,79 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-01.webp" width="508" height="604" fetchpriority="low" decoding="async" alt="1.772 sipariş, 32.712,74 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-01.webp">
+          <img src="assets/img/h-01-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 1.772 sipariş, 1.866 birim, 32.712,74 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-        <img src="assets/img/s-06.webp" width="505" height="589" fetchpriority="low" decoding="async" alt="1.323 sipariş, 26.015,33 dolar satış">
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-06.webp">
+          <img src="assets/img/h-06-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 1.323 sipariş, 1.365 birim, 26.015,33 dolar satış">
+        </picture>
       </figure>
       <figure class="shot">
-          <img src="assets/img/s-05.webp" width="506" height="601" loading="lazy" decoding="async" alt="909 sipariş, 17.560,93 dolar satış">
-        </figure>
+        <picture>
+          <source media="(min-width:760px)" srcset="assets/img/h-05.webp">
+          <img src="assets/img/h-05-m.webp" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 909 sipariş, 935 birim, 17.560,93 dolar satış">
+        </picture>
+      </figure>
+    </div>
+
+    <div class="dash rv">
       <figure class="shot">
-          <img src="assets/img/c-order.webp" width="760" height="866" loading="lazy" decoding="async" alt="1.445,13 Kanada doları satış, net kâr 674,35 Kanada doları">
-        </figure>
+        <img src="assets/img/c-order.webp" width="760" height="866" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 1.445,13 Kanada doları satış, net kâr 674,35 Kanada doları">
+      </figure>
       <figure class="shot">
-          <img src="assets/img/c-1523.webp" width="599" height="690" loading="lazy" decoding="async" alt="1.523,04 Kanada doları satış, net kâr 812,32 Kanada doları">
-        </figure>
+        <img src="assets/img/c-1523.webp" width="599" height="690" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 1.523,04 Kanada doları satış, net kâr 812,32 Kanada doları">
+      </figure>
       <figure class="shot">
-          <img src="assets/img/c-810.webp" width="614" height="690" loading="lazy" decoding="async" alt="810,01 dolar satış, net kâr 232,10 dolar">
-        </figure>
+        <img src="assets/img/c-810.webp" width="614" height="690" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 810,01 dolar satış, net kâr 232,10 dolar">
+      </figure>
       <figure class="shot">
-          <img src="assets/img/c-739.webp" width="622" height="690" loading="lazy" decoding="async" alt="739,96 dolar satış, net kâr 325,63 dolar">
-        </figure>
+        <img src="assets/img/c-739.webp" width="622" height="690" loading="lazy" decoding="async" alt="Amazon satıcı paneli: 739,96 dolar satış, net kâr 325,63 dolar">
+      </figure>
     </div>
 
     <div class="rec-head rv">
@@ -992,7 +1016,7 @@ footer{padding-block:38px 112px; background:var(--navy-950); border-top:1px soli
     lbp.hidden = tek; lbn.hidden = tek;
   }
   function open(fig){
-    var kap=fig.closest('.car, .panels, .records, .gal-lead, .proof-hero');
+    var kap=fig.closest('.car, .panels, .strips, .dash, .gal-lead, .proof-hero');
     grup = kap ? [].slice.call(kap.querySelectorAll('.shot, .phone')) : [fig];
     goster(grup.indexOf(fig));
     lb.setAttribute('open',''); document.body.style.overflow='hidden';
